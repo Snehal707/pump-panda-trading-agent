@@ -1,0 +1,231 @@
+{
+  "name": "PumpPanda",
+  "version": "1.0.0",
+  "description": "Multi-blockchain meme token trading bot",
+  "blockchains": {
+    "ethereum": {
+      "enabled": true,
+      "network": "mainnet",
+      "rpcUrl": "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID",
+      "privateKey": "0x14f30c38c5bbf6f56d644cbe9cb6d78a2891233f6a780fedfdabb2df087c11d9",
+      "gasLimit": 300000,
+      "gasPrice": "20000000000",
+      "nativeCurrency": {
+        "name": "Ether",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "blockExplorer": "https://etherscan.io",
+      "preferredDex": "uniswapV3",
+      "maxSlippage": 0.5,
+      "maxTradeSize": "1000000000000000000000"
+    },
+    "base": {
+      "enabled": true,
+      "network": "mainnet",
+      "rpcUrl": "https://mainnet.base.org",
+      "privateKey": "0x14f30c38c5bbf6f56d644cbe9cb6d78a2891233f6a780fedfdabb2df087c11d9",
+      "gasLimit": 300000,
+      "gasPrice": "1000000000",
+      "nativeCurrency": {
+        "name": "Ether",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "blockExplorer": "https://basescan.org",
+      "preferredDex": "baseswap",
+      "maxSlippage": 1,
+      "maxTradeSize": "1000000000000000000000"
+    },
+    "bsc": {
+      "enabled": true,
+      "network": "mainnet",
+      "rpcUrl": "https://bsc-dataseed1.binance.org",
+      "privateKey": "0x14f30c38c5bbf6f56d644cbe9cb6d78a2891233f6a780fedfdabb2df087c11d9",
+      "gasLimit": 300000,
+      "gasPrice": "5000000000",
+      "nativeCurrency": {
+        "name": "BNB",
+        "symbol": "BNB",
+        "decimals": 18
+      },
+      "blockExplorer": "https://bscscan.com",
+      "preferredDex": "pancakeswapV3",
+      "maxSlippage": 1,
+      "maxTradeSize": "1000000000000000000000"
+    },
+    "polygon": {
+      "enabled": true,
+      "network": "mainnet",
+      "rpcUrl": "https://polygon-rpc.com",
+      "privateKey": "0x14f30c38c5bbf6f56d644cbe9cb6d78a2891233f6a780fedfdabb2df087c11d9",
+      "gasLimit": 300000,
+      "gasPrice": "30000000000",
+      "nativeCurrency": {
+        "name": "MATIC",
+        "symbol": "MATIC",
+        "decimals": 18
+      },
+      "blockExplorer": "https://polygonscan.com",
+      "preferredDex": "quickswap",
+      "maxSlippage": 1,
+      "maxTradeSize": "1000000000000000000000"
+    },
+    "arbitrum": {
+      "enabled": false,
+      "network": "mainnet",
+      "rpcUrl": "https://arb1.arbitrum.io/rpc",
+      "privateKey": "0x14f30c38c5bbf6f56d644cbe9cb6d78a2891233f6a780fedfdabb2df087c11d9",
+      "gasLimit": 300000,
+      "gasPrice": "100000000",
+      "nativeCurrency": {
+        "name": "Ether",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "blockExplorer": "https://arbiscan.io",
+      "preferredDex": "uniswapV3",
+      "maxSlippage": 0.5,
+      "maxTradeSize": "1000000000000000000000"
+    },
+    "optimism": {
+      "enabled": false,
+      "network": "mainnet",
+      "rpcUrl": "https://mainnet.optimism.io",
+      "privateKey": "0x14f30c38c5bbf6f56d644cbe9cb6d78a2891233f6a780fedfdabb2df087c11d9",
+      "gasLimit": 300000,
+      "gasPrice": "1000000",
+      "nativeCurrency": {
+        "name": "Ether",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "blockExplorer": "https://optimistic.etherscan.io",
+      "preferredDex": "velodrome",
+      "maxSlippage": 0.5,
+      "maxTradeSize": "1000000000000000000000"
+    }
+  },
+  "trading": {
+    "enabled": true,
+    "tradingInterval": 30000,
+    "maxPositionSize": 1000,
+    "maxDailyLoss": 100,
+    "maxDrawdown": 0.05,
+    "stopLossPercentage": 0.02,
+    "takeProfitPercentage": 0.04,
+    "maxOpenPositions": 5,
+    "preferredTokens": [
+      "PEPE",
+      "SHIB",
+      "DOGE",
+      "BALD",
+      "TOSHI",
+      "SAFEMOON",
+      "BABYDOGE"
+    ],
+    "minLiquidity": "1000000000000000000000",
+    "maxSlippage": 2,
+    "autoRebalance": true,
+    "crossChainArbitrage": false
+  },
+  "dex": {
+    "preferences": {
+      "ethereum": [
+        "uniswapV3",
+        "sushiswap"
+      ],
+      "base": [
+        "baseswap",
+        "uniswapV3"
+      ],
+      "bsc": [
+        "pancakeswapV3",
+        "biswap"
+      ],
+      "polygon": [
+        "quickswap",
+        "uniswapV3"
+      ],
+      "arbitrum": [
+        "uniswapV3",
+        "sushiswap"
+      ],
+      "optimism": [
+        "velodrome",
+        "uniswapV3"
+      ]
+    },
+    "feeTiers": [
+      500,
+      1000,
+      2500,
+      3000,
+      10000
+    ],
+    "defaultFeeTier": 3000
+  },
+  "memeTokenHunting": {
+    "enabled": true,
+    "scanInterval": 60000,
+    "minMarketCap": "1000000",
+    "minLiquidity": "500000",
+    "maxHoldings": 10,
+    "autoBuy": true,
+    "autoSell": true,
+    "trendingTokens": [
+      "PEPE",
+      "SHIB",
+      "DOGE",
+      "FLOKI",
+      "BALD",
+      "TOSHI",
+      "SAFEMOON",
+      "BABYDOGE",
+      "MOONSHOT"
+    ],
+    "blacklistedTokens": [],
+    "whitelistedTokens": []
+  },
+  "risk": {
+    "maxExposurePerToken": 0.1,
+    "maxExposurePerChain": 0.3,
+    "maxExposurePerDex": 0.2,
+    "emergencyStopLoss": 0.15,
+    "circuitBreaker": true,
+    "maxGasPrice": "50000000000"
+  },
+  "monitoring": {
+    "portfolioUpdateInterval": 10000,
+    "priceUpdateInterval": 5000,
+    "performanceReportInterval": 300000,
+    "alertThresholds": {
+      "profit": 0.05,
+      "loss": 0.02,
+      "gasSpent": "100000000000000000000"
+    }
+  },
+  "notifications": {
+    "enabled": false,
+    "telegram": {
+      "botToken": "YOUR_TELEGRAM_BOT_TOKEN",
+      "chatId": "YOUR_TELEGRAM_CHAT_ID"
+    },
+    "discord": {
+      "webhookUrl": "YOUR_DISCORD_WEBHOOK_URL"
+    },
+    "email": {
+      "smtp": "smtp.gmail.com",
+      "port": 587,
+      "username": "your.email@gmail.com",
+      "password": "YOUR_APP_PASSWORD"
+    }
+  },
+  "logging": {
+    "level": "info",
+    "file": true,
+    "console": true,
+    "maxFiles": 10,
+    "maxSize": "10m"
+  }
+}

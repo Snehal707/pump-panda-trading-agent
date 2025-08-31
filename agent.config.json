@@ -1,0 +1,8 @@
+{
+    "id": "your-agent-id",
+    "name": "MyTrader",
+    "description": "Basic trading agent",
+    "entry": "src/index.ts",
+    "agentType": "trader"
+  }
+  

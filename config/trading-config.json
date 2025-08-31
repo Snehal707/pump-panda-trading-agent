@@ -1,0 +1,34 @@
+{
+  "tradingInterval": 60000,
+  "maxPositionSize": 10000,
+  "maxDailyLoss": 1000,
+  "maxDrawdown": 0.05,
+  "stopLossPercentage": 0.02,
+  "takeProfitPercentage": 0.04,
+  "maxOpenPositions": 5,
+  "symbols": [
+    "BTC/USD",
+    "ETH/USD",
+    "AAPL",
+    "GOOGL",
+    "TSLA"
+  ],
+  "dataSources": [
+    "binance",
+    "coinbase",
+    "yahoo"
+  ],
+  "updateInterval": 5000,
+  "performanceMonitoringInterval": 300000,
+  "reportGenerationInterval": 3600000,
+  "maxMemorySize": 1000000,
+  "memoryRetentionDays": 30,
+  "apiKeys": {},
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "trading_agent",
+    "username": "postgres",
+    "password": ""
+  }
+}

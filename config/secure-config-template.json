@@ -1,0 +1,119 @@
+{
+  "name": "PumpPanda",
+  "version": "1.0.0",
+  "description": "Multi-blockchain meme token trading bot - SECURE TEMPLATE",
+  "security": {
+    "warning": "NEVER put real private keys in this file!",
+    "instructions": "Use .env file for private keys and reference them here"
+  },
+  "blockchains": {
+    "ethereum": {
+      "enabled": true,
+      "network": "mainnet",
+      "rpcUrl": "https://eth.llamarpc.com",
+      "privateKey": "USE_ENV_VARIABLE_ETH_PRIVATE_KEY",
+      "gasLimit": 300000,
+      "gasPrice": "20000000000",
+      "nativeCurrency": {
+        "name": "Ether",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "blockExplorer": "https://etherscan.io",
+      "preferredDex": "uniswapV3",
+      "maxSlippage": 0.5,
+      "maxTradeSize": "1000000000000000000000"
+    },
+    "base": {
+      "enabled": true,
+      "network": "mainnet",
+      "rpcUrl": "https://mainnet.base.org",
+      "privateKey": "USE_ENV_VARIABLE_BASE_PRIVATE_KEY",
+      "gasLimit": 300000,
+      "gasPrice": "1000000000",
+      "nativeCurrency": {
+        "name": "Ether",
+        "symbol": "ETH",
+        "decimals": 18
+      },
+      "blockExplorer": "https://basescan.org",
+      "preferredDex": "baseswap",
+      "maxSlippage": 1.0,
+      "maxTradeSize": "1000000000000000000000"
+    },
+    "bsc": {
+      "enabled": true,
+      "network": "mainnet",
+      "rpcUrl": "https://bsc-dataseed1.binance.org",
+      "privateKey": "USE_ENV_VARIABLE_BSC_PRIVATE_KEY",
+      "gasLimit": 300000,
+      "gasPrice": "5000000000",
+      "nativeCurrency": {
+        "name": "BNB",
+        "symbol": "BNB",
+        "decimals": 18
+      },
+      "blockExplorer": "https://bscscan.com",
+      "preferredDex": "pancakeswapV3",
+      "maxSlippage": 1.0,
+      "maxTradeSize": "1000000000000000000000"
+    },
+    "polygon": {
+      "enabled": true,
+      "network": "mainnet",
+      "rpcUrl": "https://polygon-rpc.com",
+      "privateKey": "USE_ENV_VARIABLE_POLYGON_PRIVATE_KEY",
+      "gasLimit": 300000,
+      "gasPrice": "30000000000",
+      "nativeCurrency": {
+        "name": "MATIC",
+        "symbol": "MATIC",
+        "decimals": 18
+      },
+      "blockExplorer": "https://polygonscan.com",
+      "preferredDex": "quickswap",
+      "maxSlippage": 1.0,
+      "maxTradeSize": "1000000000000000000000"
+    }
+  },
+  "trading": {
+    "enabled": true,
+    "tradingInterval": 15000,
+    "maxPositionSize": 500,
+    "maxDailyLoss": 50,
+    "maxDrawdown": 0.03,
+    "stopLossPercentage": 0.015,
+    "takeProfitPercentage": 0.03,
+    "maxOpenPositions": 8,
+    "preferredTokens": ["PEPE", "SHIB", "DOGE", "BALD", "TOSHI", "SAFEMOON", "BABYDOGE", "FLOKI", "MOONSHOT"],
+    "minLiquidity": "500000000000000000000",
+    "maxSlippage": 1.5,
+    "autoRebalance": true,
+    "crossChainArbitrage": true,
+    "competitionMode": true
+  },
+  "memeTokenHunting": {
+    "enabled": true,
+    "scanInterval": 30000,
+    "minMarketCap": "500000",
+    "minLiquidity": "250000",
+    "maxHoldings": 15,
+    "autoBuy": true,
+    "autoSell": true,
+    "trendingTokens": ["PEPE", "SHIB", "DOGE", "FLOKI", "BALD", "TOSHI", "SAFEMOON", "BABYDOGE", "MOONSHOT", "POLYPEPE", "MATICDOGE"],
+    "blacklistedTokens": [],
+    "whitelistedTokens": [],
+    "competitionMode": true,
+    "aggressiveScanning": true
+  },
+  "risk": {
+    "maxExposurePerToken": 0.15,
+    "maxExposurePerChain": 0.4,
+    "maxExposurePerDex": 0.25,
+    "emergencyStopLoss": 0.12,
+    "circuitBreaker": true,
+    "maxGasPrice": "40000000000",
+    "competitionMode": true,
+    "aggressiveRiskTolerance": true
+  }
+}

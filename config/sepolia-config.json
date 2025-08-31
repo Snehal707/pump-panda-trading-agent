@@ -1,0 +1,29 @@
+{
+  "blockchain": {
+    "network": "sepolia",
+    "rpcUrl": "https://sepolia.infura.io/v3/YOUR_INFURA_PROJECT_ID",
+    "privateKey": "YOUR_PRIVATE_KEY_HERE",
+    "gasLimit": 300000,
+    "gasPrice": "20000000000"
+  },
+  "trading": {
+    "tradingInterval": 30000,
+    "maxPositionSize": 1000,
+    "maxDailyLoss": 100,
+    "maxDrawdown": 0.05,
+    "stopLossPercentage": 0.02,
+    "takeProfitPercentage": 0.04,
+    "maxOpenPositions": 3
+  },
+  "tokens": {
+    "WETH": "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14",
+    "USDC": "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238",
+    "DAI": "0x68194a729C2450ad26072b3D33ADaCbcef39D574",
+    "LINK": "0x779877A7B0D9E8603169DdbD7836e478b4624789"
+  },
+  "dex": {
+    "uniswapV3Router": "0x3bFA4769FB09eefC5a80d6E87c3B9C650f7Ae48E",
+    "uniswapV3Factory": "0x0227628f3F023bb0B980b67D528571c95c6DaC1c",
+    "uniswapV3Quoter": "0x61fFE014bA17989E92cE4bE0d0E5C8f8F8F8F8F8"
+  }
+}

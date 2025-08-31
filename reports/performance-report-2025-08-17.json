@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-08-17T10:29:31.995Z",
+  "metrics": {
+    "totalReturn": 7124.581346504057,
+    "totalReturnPercentage": 7.124581346504058,
+    "sharpeRatio": 1.9891295908321274,
+    "maxDrawdown": 6.42865412104617,
+    "winRate": 0.6,
+    "profitFactor": 6.829051110402813,
+    "totalTrades": 100,
+    "winningTrades": 60,
+    "losingTrades": 40,
+    "averageWin": 434.33436357686986,
+    "averageLoss": 95.40147449956278,
+    "bestTrade": 844.6697719981278,
+    "worstTrade": -131.31162366938767
+  },
+  "portfolio": null,
+  "summary": "Performance Summary:\n    Total Return: +7124.58 (+7.12%)\n    Sharpe Ratio: 1.99\n    Max Drawdown: 6.43%\n    Win Rate: 60.0%\n    Total Trades: 100\n    Profit Factor: 6.83"
+}

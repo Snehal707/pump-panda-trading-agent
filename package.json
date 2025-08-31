@@ -1,0 +1,37 @@
+{
+  "name": "pump-panda",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "pump-panda": "ts-node src/pump-panda-main.ts",
+    "demo": "ts-node src/examples/pump-panda-demo.ts",
+    "demo:config": "ts-node -e \"require('./src/examples/pump-panda-demo.ts').demoConfiguration()\"",
+    "test:pump-panda": "ts-node test-pump-panda.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "axios": "^1.6.0",
+    "ws": "^8.14.2",
+    "technicalindicators": "^3.1.0",
+    "moment": "^2.29.4",
+    "winston": "^3.11.0",
+    "node-cron": "^3.0.3",
+    "ethers": "^6.8.1",
+    "@uniswap/v3-sdk": "^3.10.0",
+    "@uniswap/sdk-core": "^4.0.3",
+    "web3": "^4.2.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6",
+    "@types/node": "^20.8.0",
+    "@types/ws": "^8.5.8",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.8"
+  }
+}
+  
