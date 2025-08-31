@@ -6,6 +6,7 @@ import { PortfolioManager } from '../portfolio/PortfolioManager';
 import { RecallMemory } from '../memory/RecallMemory';
 import { Logger } from '../utils/Logger';
 import { PerformanceTracker } from '../analytics/PerformanceTracker';
+import { RecallNetworkIntegration } from '../recall/RecallNetworkIntegration';
 
 export class PumpPandaAgent {
   private config: PumpPandaConfigManager;
@@ -16,19 +17,30 @@ export class PumpPandaAgent {
   private memory: RecallMemory;
   private performance: PerformanceTracker;
   private logger: Logger;
+  private recallIntegration: RecallNetworkIntegration | null = null;
   private isRunning: boolean = false;
-  private memeTokenScanner: NodeJS.Timeout | null = null;
-  private tradingLoop: NodeJS.Timeout | null = null;
+  private isPaused: boolean = false;
+  private tradingInterval: NodeJS.Timeout | null = null;
+  private performanceInterval: NodeJS.Timeout | null = null;
+  private trendingTokens: string[] = [];
+  private autoTradingEnabled: boolean = true;
 
   constructor(config: PumpPandaConfigManager) {
     this.config = config;
     this.logger = new Logger();
-    this.marketData = new MarketDataManager(config as any);
-    this.strategy = new TradingStrategy(config as any);
-    this.riskManager = new RiskManager(config as any);
-    this.portfolio = new PortfolioManager(config as any);
-    this.memory = new RecallMemory(config as any);
-    this.performance = new PerformanceTracker(config as any);
+    this.marketData = new MarketDataManager(config);
+    this.strategy = new TradingStrategy(config);
+    this.riskManager = new RiskManager(config);
+    this.portfolio = new PortfolioManager(config);
+    this.memory = new RecallMemory(config);
+    this.performance = new PerformanceTracker(config);
+    
+    // Initialize Recall Network integration if API key is available
+    const recallApiKey = process.env.RECALL_API_KEY;
+    if (recallApiKey) {
+      this.recallIntegration = new RecallNetworkIntegration(recallApiKey);
+      this.logger.info('Recall Network integration initialized');
+    }
   }
 
   async initialize(): Promise<void> {
@@ -82,11 +94,11 @@ export class PumpPandaAgent {
 
   private startTradingLoop(): void {
     const interval = this.config.getTradingInterval();
-    this.tradingLoop = setInterval(async () => {
+    this.tradingInterval = setInterval(async () => {
       if (!this.isRunning) {
-        if (this.tradingLoop) {
-          clearInterval(this.tradingLoop);
-          this.tradingLoop = null;
+        if (this.tradingInterval) {
+          clearInterval(this.tradingInterval);
+          this.tradingInterval = null;
         }
         return;
       }
@@ -108,11 +120,11 @@ export class PumpPandaAgent {
       return;
     }
 
-    this.memeTokenScanner = setInterval(async () => {
+    this.tradingInterval = setInterval(async () => {
       if (!this.isRunning) {
-        if (this.memeTokenScanner) {
-          clearInterval(this.memeTokenScanner);
-          this.memeTokenScanner = null;
+        if (this.tradingInterval) {
+          clearInterval(this.tradingInterval);
+          this.tradingInterval = null;
         }
         return;
       }
@@ -271,7 +283,7 @@ export class PumpPandaAgent {
 
   private startPerformanceMonitoring(): void {
     const interval = this.config.getPerformanceMonitoringInterval();
-    setInterval(async () => {
+    this.performanceInterval = setInterval(async () => {
       if (!this.isRunning) {
         return;
       }
@@ -293,13 +305,13 @@ export class PumpPandaAgent {
 
     try {
       // Clear intervals
-      if (this.tradingLoop) {
-        clearInterval(this.tradingLoop);
-        this.tradingLoop = null;
+      if (this.tradingInterval) {
+        clearInterval(this.tradingInterval);
+        this.tradingInterval = null;
       }
-      if (this.memeTokenScanner) {
-        clearInterval(this.memeTokenScanner);
-        this.memeTokenScanner = null;
+      if (this.performanceInterval) {
+        clearInterval(this.performanceInterval);
+        this.performanceInterval = null;
       }
 
       await this.marketData.stopStreaming();

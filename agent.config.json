@@ -1,8 +1,21 @@
 {
-    "id": "your-agent-id",
-    "name": "MyTrader",
-    "description": "Basic trading agent",
-    "entry": "src/index.ts",
-    "agentType": "trader"
-  }
+  "id": "pump-panda-trading-agent",
+  "name": "PumpPanda Trading Agent",
+  "description": "Advanced multi-blockchain trading agent with AI-powered strategies, meme token hunting, and cross-chain portfolio management. Features include risk management, performance analytics, and support for Ethereum, Base, BSC, Polygon, Arbitrum, and Optimism networks.",
+  "entry": "src/recall/recall-entry.ts",
+  "agentType": "trader",
+  "version": "1.0.0",
+  "author": "Snehal707",
+  "repository": "https://github.com/Snehal707/pump-panda-trading-agent",
+  "keywords": ["trading", "crypto", "blockchain", "ai", "defi", "multi-chain"],
+  "supportedNetworks": ["ethereum", "base", "bsc", "polygon", "arbitrum", "optimism"],
+  "features": [
+    "AI-powered trading strategies",
+    "Meme token hunting",
+    "Multi-blockchain support",
+    "Risk management",
+    "Portfolio tracking",
+    "Performance analytics"
+  ]
+}
   

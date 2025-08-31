@@ -351,4 +351,64 @@ export class PumpPandaConfigManager {
       throw error;
     }
   }
+
+  // Compatibility methods for existing components
+  getDataSources(): string[] {
+    return ['binance', 'coinbase', 'yahoo']; // Default data sources
+  }
+
+  getMaxPositionSize(): number {
+    return this.config.risk.maxExposurePerToken || 10000;
+  }
+
+  getMaxDailyLoss(): number {
+    return this.config.risk.maxExposurePerChain || 1000;
+  }
+
+  getMaxDrawdown(): number {
+    return 0.05; // Default 5% max drawdown
+  }
+
+  getStopLossPercentage(): number {
+    return 0.02; // Default 2% stop loss
+  }
+
+  getTakeProfitPercentage(): number {
+    return 0.04; // Default 4% take profit
+  }
+
+  getMaxOpenPositions(): number {
+    return 5; // Default max open positions
+  }
+
+  getMaxMemorySize(): number {
+    return 1000000; // Default 1M records
+  }
+
+  getMemoryRetentionDays(): number {
+    return 30; // Default 30 days
+  }
+
+  getDatabaseConfig(): any {
+    return {
+      host: 'localhost',
+      port: 5432,
+      name: 'pump_panda',
+      username: 'user',
+      password: 'password'
+    };
+  }
+
+  getApiKeys(): { [key: string]: string } {
+    return {}; // No API keys in current config
+  }
+
+  getBlockchainNetwork(): 'mainnet' | 'sepolia' | 'goerli' {
+    return 'sepolia'; // Default to sepolia
+  }
+
+  getRpcUrl(): string {
+    const ethereum = this.config.blockchains.ethereum;
+    return ethereum ? ethereum.rpcUrl : '';
+  }
 }
