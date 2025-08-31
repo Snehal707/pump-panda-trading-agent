@@ -411,4 +411,20 @@ export class PumpPandaConfigManager {
     const ethereum = this.config.blockchains.ethereum;
     return ethereum ? ethereum.rpcUrl : '';
   }
+
+  // Additional compatibility methods
+  getApiKey(): string {
+    return process.env.RECALL_API_KEY || '';
+  }
+
+  getMemoryConfig(): any {
+    return {
+      maxSize: this.getMaxMemorySize(),
+      retentionDays: this.getMemoryRetentionDays()
+    };
+  }
+
+  getNetwork(): string {
+    return this.getBlockchainNetwork();
+  }
 }

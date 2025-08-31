@@ -10,7 +10,9 @@
     "pump-panda": "ts-node src/pump-panda-main.ts",
     "demo": "ts-node src/examples/pump-panda-demo.ts",
     "demo:config": "ts-node -e \"require('./src/examples/pump-panda-demo.ts').demoConfiguration()\"",
-    "test:pump-panda": "ts-node test-pump-panda.ts"
+    "test:pump-panda": "ts-node test-pump-panda.ts",
+    "test:recall": "ts-node test-recall-integration.ts",
+    "test:recall:simple": "ts-node test-recall-simple.ts"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
